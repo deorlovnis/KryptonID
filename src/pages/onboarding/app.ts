@@ -1,4 +1,4 @@
-import { getPublicKeyFromWebEID } from "../../lib"
+import { getPublicKeyFromWebEID } from '../../lib/eid'
 
 const btn = document.getElementById('auth-button') as HTMLButtonElement
 
