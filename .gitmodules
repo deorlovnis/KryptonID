@@ -1,0 +1,3 @@
+[submodule "wallet/lib/forge-std"]
+	path = wallet/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
