@@ -7,7 +7,6 @@ import { Hex } from 'viem'
 const encoder = new TextEncoder()
 
 export const getPublicKeyFromWebEID = async (): Promise<Hex> => {
-
   const { certificate } = await webeid.getSigningCertificate({ lang: 'en' })
 
   const message = 'Signing in with KryptonID'
@@ -17,7 +16,7 @@ export const getPublicKeyFromWebEID = async (): Promise<Hex> => {
   const hashBinary = new Uint8Array(hashBuffer)
   const hashArray = Array.from(hashBinary)
 
-  const hash = btoa(String.fromCharCode.apply(null, hashArray));
+  const hash = btoa(String.fromCharCode.apply(null, hashArray))
 
   const { signature } = await webeid.sign(
     certificate,

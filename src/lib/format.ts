@@ -1,4 +1,4 @@
-import { Hex } from "@noble/curves/abstract/utils"
+import { Hex } from '@noble/curves/abstract/utils'
 
 export const base64ToHex = (b64: string) => {
   const decodedBytes = atob(b64)
