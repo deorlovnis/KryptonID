@@ -1,6 +1,7 @@
 import 'viem/window'
 import {
   Account,
+  Address,
   Chain,
   createPublicClient,
   createWalletClient,
@@ -49,19 +50,37 @@ export const deployWallet = async (
   })
 }
 
-export const getWalletAddress = async (pc: PublicClient, wc: Client) => {
-  return await pc.readContract({
+export const getWalletAddressWithPubkey = async (
+  pc: PublicClient,
+  wc: Client,
+) => {
+  const wallet = await pc.readContract({
     abi: registryAbi,
     functionName: 'ownersToWallets',
     args: [wc.account.address],
     address: registryAddress,
   })
+  const pubKey = await pc.readContract({
+    abi: registryAbi,
+    functionName: 'walletsToPubkeys',
+    args: [wallet],
+    address: registryAddress,
+  })
+
+  return { pubKey, wallet }
 }
 
-export const sendETH = async (client: Client, value: bigint) => {
-  // const hash = await client.writeContract({
-  //   abi: walletAbi,
-  //   functionName: 'sendETH',
-  //   address: '',
-  // })
+export const sendETH = async (
+  client: Client,
+  pubKey: string,
+  value: bigint,
+  to: Address,
+) => {
+  return client.writeContract({
+    abi: walletAbi,
+    args: [pubKey, to],
+    value,
+    functionName: 'sendETH',
+    address: client.account.address,
+  })
 }

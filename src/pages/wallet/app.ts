@@ -1,11 +1,19 @@
-import { getWalletAddress, initWalletClient, publicClient } from '../../lib/eth'
+import { parseEther, zeroAddress } from 'viem'
+import {
+  getWalletAddressWithPubkey,
+  initWalletClient,
+  publicClient,
+  sendETH,
+} from '../../lib/eth'
 
 async function main() {
   const wc = await initWalletClient()
 
-  const walletAddr = await getWalletAddress(publicClient, wc)
+  const { pubKey, wallet } = await getWalletAddressWithPubkey(publicClient, wc)
 
-  console.log(walletAddr)
+  console.log(pubKey, wallet)
+
+  sendETH(wc, pubKey, parseEther('1'), zeroAddress)
 }
 
 main()
