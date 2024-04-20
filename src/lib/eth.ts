@@ -1,8 +1,8 @@
 import 'viem/window'
 import { createWalletClient, custom } from 'viem'
-import { anvil } from 'viem/chains'
+import { anvil, sepolia } from 'viem/chains'
 
-export const createClient = async () => {
+export const initWalletClient = async () => {
   const [account] = await window.ethereum!.request({
     method: 'eth_requestAccounts',
   })
@@ -10,6 +10,6 @@ export const createClient = async () => {
   return createWalletClient({
     account,
     transport: custom(window.ethereum!),
-    chain: anvil,
+    chain: sepolia,
   })
 }

@@ -63,7 +63,7 @@ body {
     font-weight: var(--font-bold);
 }
 
-.main-page-content-button {
+button {
     display: flex;
     width: 326px;
     padding: 24px 111px;
@@ -83,7 +83,7 @@ body {
     z-index: 0;
 }
 
-.main-page-content-button:hover {
+button:hover {
     background: var(--gradient-second);
     transform: scale(1.05);
     /* Increasing size on hover */
