@@ -10,13 +10,14 @@ contract Wallet {
     mapping(address => bool) accounts;
 
     constructor(string memory eIDPubKey, address registryAddress) {
+        address owner = msg.sender;
         registry = Registry(registryAddress);
-        accounts[msg.sender] = true;
-        registry.addUser(eIDPubKey, address(this));
+        accounts[owner] = true;
+        registry.addUser(eIDPubKey, address(this), owner);
     }
 
     modifier onlyWallet(string memory eIDPubKey) {
-        if (!registry.verifyUser(eIDPubKey, msg.sender) || !accounts[msg.sender]) revert AccessDenied();
+        if (!registry.verify(eIDPubKey, msg.sender) || !accounts[msg.sender]) revert AccessDenied();
         _;
     }
 
