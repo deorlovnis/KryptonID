@@ -11,7 +11,7 @@ contract Wallet {
 
     constructor(string memory eIDPubKey, address oracleAddress) {
         registry = Registry(oracleAddress);
-         accounts[msg.sender] = true;
+        accounts[msg.sender] = true;
         registry.addUser(eIDPubKey, address(this));
     }
 
