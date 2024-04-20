@@ -1,6 +1,6 @@
 import { p384 } from '@noble/curves/p384'
 import { createServer } from 'node:http'
-import { base64ToHex } from '../lib/utils'
+import { base64ToHex } from '../lib/format'
 
 
 createServer((req, res) => {
@@ -20,8 +20,6 @@ createServer((req, res) => {
 
     const pubKey = sig.recoverPublicKey(signature as string)
 
-    if (pubKey === contractPubKey) {
-      
-    }
+    
   }
 }).listen(3000)
