@@ -9,8 +9,8 @@ contract Wallet {
     Registry internal registry;
     mapping(address => bool) accounts;
 
-    constructor(string memory eIDPubKey, address oracleAddress) {
-        registry = Registry(oracleAddress);
+    constructor(string memory eIDPubKey, address registryAddress) {
+        registry = Registry(registryAddress);
         accounts[msg.sender] = true;
         registry.addUser(eIDPubKey, address(this));
     }

@@ -1,50 +1,17 @@
-import { client } from './eth'
-import WalletJSON from '../../wallet/out/Wallet.sol/Wallet.json'
-import { Hex } from 'viem'
 
-export const deployWallet = (pubKey: string) => {
-  client.deployContract({
-    abi: [{
-      'type': 'constructor',
-      'inputs': [{
-        'name': 'eIDPubKey',
-        'type': 'string',
-        'internalType': 'string',
-      }, {
-        'name': 'oracleAddress',
-        'type': 'address',
-        'internalType': 'address',
-      }],
-      'stateMutability': 'nonpayable',
-    }, {
-      'type': 'function',
-      'name': 'addEthereumAccount',
-      'inputs': [{
-        'name': 'account',
-        'type': 'address',
-        'internalType': 'address',
-      }],
-      'outputs': [],
-      'stateMutability': 'nonpayable',
-    }, {
-      'type': 'function',
-      'name': 'sendETH',
-      'inputs': [{
-        'name': 'eIDPubKey',
-        'type': 'string',
-        'internalType': 'string',
-      }, {
-        'name': 'to',
-        'type': 'address',
-        'internalType': 'address payable',
-      }],
-      'outputs': [],
-      'stateMutability': 'payable',
-    }, { 'type': 'error', 'name': 'AccessDenied', 'inputs': [] }] as const,
+import WalletJSON from '../../wallet/out/Wallet.sol/Wallet.json'
+import { Account, Chain, CustomTransport, Hex, WalletClient, parseAbi } from 'viem'
+
+const registryAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+
+export const deployWallet = async (client: WalletClient<CustomTransport, Chain, Account>, pubKey: string) => {
+  console.log(`DEPLOYING: ${pubKey} ADDRESS: ${client.account.address}`)
+  return client.deployContract({
+    abi: parseAbi(['constructor(string eIDPubKey, address registryAddress)']),
     bytecode: WalletJSON.bytecode.object as Hex,
     args: [
       pubKey,
-      client.account.address,
+      registryAddress
     ],
   })
 }
