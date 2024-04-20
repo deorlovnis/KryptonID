@@ -1,22 +1,12 @@
 import * as webeid from '@web-eid/web-eid-library/web-eid'
 import { SignatureHashFunction } from '@web-eid/web-eid-library/models/SignatureAlgorithm'
 import { p384 } from '@noble/curves/p384'
+import { base64ToHex } from './utils'
 import { Hex } from 'viem'
 
 const encoder = new TextEncoder()
 
-const base64ToHex = (b64: string) => {
-  const decodedBytes = atob(b64)
-
-  let hexStr = ''
-  for (let i = 0; i < decodedBytes.length; i++) {
-    const hex = decodedBytes.charCodeAt(i).toString(16)
-    hexStr += hex.length === 2 ? hex : '0' + hex
-  }
-  return hexStr as Hex
-}
-
-export const getPublicKeyFromWebEID = async () => {
+export const getPublicKeyFromWebEID = async (): Promise<Hex> => {
 
   const { certificate } = await webeid.getSigningCertificate({ lang: 'en' })
 
@@ -39,5 +29,5 @@ export const getPublicKeyFromWebEID = async () => {
 
   sig = sig.addRecoveryBit(1)
 
-  console.log(sig.recoverPublicKey(hashBinary).toHex())
+  return sig.recoverPublicKey(hashBinary).toHex() as Hex
 }
