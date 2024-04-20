@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm parcel src/pages/**/*.html --https"
+    "dev": "parcel 'src/pages/**/*.html' --https"
   },
   "keywords": [],
   "author": "",
