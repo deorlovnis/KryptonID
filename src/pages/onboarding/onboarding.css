@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --text-color: #fff;
+    --body-color: #0B0B0F;
+    --body-font: "Archivo", sans-serif;
+    --big-font-size: 7rem;
+    --normal-font-size: 2rem;
+    --font-medium: 700;
+    --font-bold: 900;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+.main-page {
+    background-image: url(./backgroudImage.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-page-content-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: var(--big-font-size);
+    font-style: normal;
+    font-weight: var(--font-bold);
+}
+
+.main-page-content-button {
+    display: flex;
+    width: 326px;
+    padding: 24px 111px 24px 112px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid var(--gradient-light, rgba(255, 255, 255, 0.47));
+    background: var(--gradient-main, linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%));
+    color: var(--text-color);
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-style: normal;
+    font-weight: var(--font-medium);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
