@@ -1,37 +1,31 @@
-import {
-  Address,
-  Hex,
-  createTestClient,
-  getContract,
-  http,
-  parseAbi,
-  publicActions,
-  walletActions,
-  zeroAddress,
-} from 'viem'
-import {privateKeyToAccount} from 'viem/accounts'
+import 'viem/window'
+import { Address, createWalletClient, custom, parseAbi } from 'viem'
 import { anvil } from 'viem/chains'
 
-const account = privateKeyToAccount(process.env.ANVIL_ADMIN_PK as Hex)
-
-export const client = createTestClient({
-  mode: 'anvil',
-  transport: http(anvil.rpcUrls.default[0]),
-  chain: anvil,
-  account
+const [account] = await window.ethereum!.request({
+  method: 'eth_requestAccounts',
 })
-  .extend(publicActions)
-  .extend(walletActions)
+
+export const client = createWalletClient({
+  account,
+  transport: custom(window.ethereum!),
+  chain: anvil,
+})
 
 const oracleAbi = parseAbi([
   'function addUser(string memory eIDPubKey, address walletAddress) external',
   'function verifyUser(string memory eIDPubKey, address walletAddress) external view returns (bool)',
 ])
 
+const walletAbi = parseAbi([
+  'constructor(string memory eIDPubKey, address[] memory _accountsArray, address oracleAddress)',
+  'function sendETH(address payable to) external payable',
+])
+
 export const addUserToOracle = (pubKey: string, walletAddress: Address) => {
   return client.writeContract({
     abi: oracleAbi,
-    functionName:'addUser',
+    functionName: 'addUser',
     args: [pubKey, walletAddress],
     address: '0xaddr',
     chain: anvil,

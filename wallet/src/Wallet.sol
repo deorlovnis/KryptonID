@@ -1,34 +1,30 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import {Oracle} from './Oracle.sol';
+import {Registry} from './Registry.sol';
 
 error AccessDenied();
 
 contract Wallet {
-    Oracle internal oracle;
+    Registry internal registry;
     mapping(address => bool) accounts;
 
-    constructor(address[] memory _accountsArray, address oracleAddress) {
-        oracle = Oracle(oracleAddress);
-        for (uint i = 0; i < _accountsArray.length; i++) {
-            address addr = _accountsArray[i];
-            accounts[addr] = true;
-        }
-    }
-
-    modifier onlyOwner() {
-        if (!accounts[msg.sender]) revert AccessDenied();
-        _;
+    constructor(string memory eIDPubKey, address oracleAddress) {
+        registry = Registry(oracleAddress);
+         accounts[msg.sender] = true;
+        registry.addUser(eIDPubKey, address(this));
     }
 
     modifier onlyWallet(string memory eIDPubKey) {
-        if (!oracle.verifyUser(eIDPubKey, msg.sender)) revert AccessDenied();
+        if (!registry.verifyUser(eIDPubKey, msg.sender) || !accounts[msg.sender]) revert AccessDenied();
         _;
     }
 
+    function addEthereumAccount(address account) external {
+        accounts[account] = true;
+    }
 
-    function sendETH(address payable to) onlyOwner external payable {
+    function sendETH(string memory eIDPubKey, address payable to) onlyWallet(eIDPubKey) external payable {
         to.transfer(msg.value);
     }
 }
