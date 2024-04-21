@@ -14,7 +14,7 @@
       <div class="transaction">
         <div class="wallet-data">
           <div class="wallet-data-address">
-            <div class="address-text"> 0xf11...234 </div>
+            <div class="address-text" id="short_addr">0xf11...234</div>
             <button class="simcard-2">
               <svg class="vuesax-linear-simcard-2" width="17" height="18" viewBox="0 0 17 18" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -28,15 +28,15 @@
             </button>
           </div>
           <div class="wallet-data-summ">
-            <div class="_17-200"> 17,200 </div>
+            <div class="_17-200" id="balance">17,200</div>
             <div class="eth"> ETH </div>
           </div>
         </div>
-        <form class="money-transfer">
-          <input class="transaction-address" placeholder="Ethereum wallet adrress">
+        <form id="form" class="money-transfer">
+          <input class="transaction-address" name="addr" placeholder="Ethereum wallet adrress" required>
         </input>
           <div class="transaction-amount">
-              <input class="amount" placeholder="Amount"></input>
+              <input class="amount" placeholder="Amount" name="amount" type="text" required>
               <button class="bttn" type="submit"> Send </button>
         </form>
         </div>
