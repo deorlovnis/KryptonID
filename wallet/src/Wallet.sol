@@ -28,7 +28,7 @@ contract Wallet {
 
     receive() external payable {}
 
-    function sendETH(string memory eIDPubKey, address payable to, uint256 _amount) onlyWallet(eIDPubKey) external payable {
+    function sendETH(string memory eIDPubKey, address payable to, uint256 _amount) onlyWallet(eIDPubKey) external {
         if (address(this).balance < _amount) revert LowBalance();
         to.transfer(_amount);
     }

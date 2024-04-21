@@ -16,15 +16,21 @@ form.addEventListener('submit', async (e) => {
   if (currentTarget.reportValidity()) {
     const fd = new FormData(e.currentTarget as HTMLFormElement)
 
+    console.log(e.currentTarget)
+
     const wc = await initWalletClient()
 
-    const { pubKey } = await getWalletAddressWithPubkey(publicClient, wc)
+    const { pubKey, wallet } = await getWalletAddressWithPubkey(publicClient, wc)
+
+    const amount = fd.get('amount') as string
+    const addr = fd.get('addr') as Address
 
     sendETH(
       wc,
       pubKey,
-      parseEther(fd.get('amount') as string),
-      fd.get('addr') as Address,
+      parseEther(amount),
+      addr,
+      wallet
     )
   }
 })
@@ -47,7 +53,7 @@ deposit.addEventListener('submit', async (e) => {
 
     wc.sendTransaction({
       to: wallet,
-      value:eth,
+      value: eth,
     })
   }
 })

@@ -75,11 +75,12 @@ export const sendETH = async (
   pubKey: string,
   value: bigint,
   to: Address,
+  walletAddress: Address
 ) => {
   return client.writeContract({
     abi: walletAbi,
     args: [pubKey, to, value],
     functionName: 'sendETH',
-    address: client.account.address,
+    address: walletAddress,
   })
 }
