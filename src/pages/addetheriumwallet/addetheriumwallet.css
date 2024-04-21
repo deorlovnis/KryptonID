@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap');
+
+:root {
+    --text-color: #fff;
+    --body-color: #0B0B0F;
+    --body-font: "Archivo", sans-serif;
+    --big-font-size: 7rem;
+    --normal-font-size: 2rem;
+    --small-font-size: 1.3rem;
+    --font-medium: 700;
+    --font-bold: 900;
+    --gradient-light: rgba(255, 255, 255, 0.47);
+    --gradient-main: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);
+    --gradient-second: linear-gradient(225deg, #18ffb2 14.89%, #de3ffe 85.85%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: inline-block;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.addadress {
+    background-image: url(./addetheriumwallet.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 826px;
+    position: relative;
+}
+
+/* 
+.addadress {
+    flex-shrink: 0;
+    height: 826px;
+    position: relative;
+} */
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 780px;
+    position: absolute;
+    left: 330px;
+    top: calc(50% - 311.5px);
+    overflow: hidden;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.add-ethereum-address {
+    color: var(--black-black-100, #ffffff);
+    text-align: center;
+    font-family: var(--h2-50px-font-family, 'Inter-Black', sans-serif);
+    font-size: var(--h2-50px-font-size, 50px);
+    line-height: var(--h2-50px-line-height, 130%);
+    font-weight: var(--h2-50px-font-weight, 900);
+    opacity: 0.9599999785423279;
+    position: relative;
+    width: 780px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.please-create-your-own-ethereum-keys-and-then-input-them-into-to-f-program {
+    color: var(--black-black-60, #898ca9);
+    text-align: center;
+    font-family: var(--body-16px-font-family, 'Inter-Regular', sans-serif);
+    font-size: var(--body-16px-font-size, 16px);
+    line-height: var(--body-16px-line-height, 150%);
+    font-weight: var(--body-16px-font-weight, 400);
+    position: relative;
+    width: 580px;
+}
+
+.table {
+    background: rgba(65, 65, 87, 0.75);
+    border-radius: 25px;
+    padding: 20px 32px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 1180px;
+    position: absolute;
+    left: 115px;
+    top: 382px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.dddd {
+    background: #545562;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #666060;
+    border-width: 1px;
+    flex-shrink: 0;
+    width: 1030px;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ethereum-wallet-adrress {
+    color: rgba(255, 255, 255, 0.20);
+    text-align: left;
+    font-family: 'Inter-Medium', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    right: 44.68%;
+    left: 6.34%;
+    width: 48.98%;
+    bottom: 30.08%;
+    top: 32.94%;
+    height: 36.98%;
+}
+
+.add-round-fill {
+    flex-shrink: 0;
+    width: 55.56px;
+    height: 50px;
+    position: relative;
+    overflow: visible;
+}
+
+.add-round-fill2 {
+    flex-shrink: 0;
+    width: 55.56px;
+    height: 50px;
+    position: relative;
+    overflow: visible;
+}
+
+.line-5 {
+    border-style: solid;
+    border-color: var(--black-black-20, #2b2c3b);
+    border-width: 1px 0 0 0;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 0px;
+    position: relative;
+}

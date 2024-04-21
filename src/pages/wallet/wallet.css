@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap');
+
+:root {
+    --text-color: #fff;
+    --body-color: #0B0B0F;
+    --body-font: "Archivo", sans-serif;
+    --big-font-size: 7rem;
+    --normal-font-size: 2rem;
+    --small-font-size: 1.3rem;
+    --font-medium: 700;
+    --font-bold: 900;
+    --gradient-light: rgba(255, 255, 255, 0.47);
+    --gradient-main: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);
+    --gradient-second: linear-gradient(225deg, #18ffb2 14.89%, #de3ffe 85.85%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: inline-block;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.wallet {
+    background-image: url(./wallet.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wallet-container {
+    opacity: 0.7;
+    padding: 42px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 888px;
+    position: relative;
+    overflow: hidden;
+}
+
+.transaction {
+    background: rgba(65, 65, 87, 0.75);
+    border-radius: 25px;
+    padding: 38px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wallet-data {
+    border-radius: 25px;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 202px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wallet-data-address {
+    background: #545562;
+    border-radius: 35px;
+    padding: 7px 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.address-text {
+    color: #b5aeff;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.simcard-2 {
+    flex-shrink: 0;
+    width: 17px;
+    height: 16.06px;
+    position: relative;
+}
+
+.vuesax-linear-simcard-2 {
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: visible;
+}
+
+.wallet-data-summ {
+    padding: 19px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+._17-200 {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.20)), linear-gradient(to left, #ffffff, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 51px;
+    font-weight: 700;
+}
+
+.eth {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.40));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.money-transfer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 33px;
+}
+
+
+.transaction-address {
+    background: #545562;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #565d75;
+    border-width: 1px;
+    width: 533px;
+    height: 70px;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.20);
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.amount {
+    background: #545562;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #666060;
+    border-width: 1px;
+    width: 333px;
+    height: 70px;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.20);
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.transaction-amount {
+    display: flex;
+    flex-direction: row;
+    gap: 53px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.bttn {
+    width: 144px;
+    height: 56px;
+    padding: 16px 32px;
+    border-radius: 15px;
+    border: 1px solid var(--gradient-light);
+    background: var(--gradient-main);
+    color: var(--text-color);
+    text-align: center;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.bttn:hover {
+    background: var(--gradient-second);
+    transform: scale(1.05);
+}
