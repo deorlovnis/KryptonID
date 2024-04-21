@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 import {Registry} from './Registry.sol';
 
 error AccessDenied();
+error LowBalance();
 
 contract Wallet {
     Registry internal registry;
@@ -25,7 +26,10 @@ contract Wallet {
         accounts[account] = true;
     }
 
-    function sendETH(string memory eIDPubKey, address payable to) onlyWallet(eIDPubKey) external payable {
-        to.transfer(msg.value);
+    receive() external payable {}
+
+    function sendETH(string memory eIDPubKey, address payable to, uint256 _amount) onlyWallet(eIDPubKey) external payable {
+        if (address(this).balance < _amount) revert LowBalance();
+        to.transfer(_amount);
     }
 }
