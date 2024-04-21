@@ -29,6 +29,29 @@ form.addEventListener('submit', async (e) => {
   }
 })
 
+const deposit = document.getElementById('deposit') as HTMLFormElement
+
+deposit.addEventListener('submit', async (e) => {
+  e.preventDefault()
+
+  const currentTarget = e.currentTarget as HTMLFormElement
+
+  if (currentTarget.reportValidity()) {
+    const fd = new FormData(e.currentTarget as HTMLFormElement)
+
+    const wc = await initWalletClient()
+
+    const { wallet } = await getWalletAddressWithPubkey(publicClient, wc)
+
+    const eth = parseEther(fd.get('amount') as string)
+
+    wc.sendTransaction({
+      to: wallet,
+      value:eth,
+    })
+  }
+})
+
 setInterval(async () => {
   const wc = await initWalletClient()
 
