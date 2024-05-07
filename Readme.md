@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.svg">
+</p>
+
 # KryptonID
 
 *Our mission is to provide secure KYC solutions for crypto, ensuring users, businesses, and governments can achieve the highest level of trust.*
