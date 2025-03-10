@@ -24,6 +24,8 @@ This version of the proof-of-concept is untested and not intended for production
 If you are interested in this idea in any way, please contact us:
 
 contact@kryptonid.org
+or
+[miner@jjl.ch](mailto:miner@jjl.ch)
 
 
 
