@@ -25,7 +25,7 @@ If you are interested in this idea in any way, please contact us:
 
 contact@kryptonid.org
 or
-[miner@jjl.ch](mailto:miner@jjl.ch)
+[👷🏿](mailto:miner@jjl.ch)
 
 
 
