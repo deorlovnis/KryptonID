@@ -16,7 +16,7 @@ contract Registry {
     ownersToWallets[deployer] = walletAddress;
   }
   function verify(string memory eIDPubKey, address walletAddress) external view returns (bool) {
-    if (!(pubkeysToWallets[eIDPubKey] != walletAddress)) revert WalletNotInRegistry();
+    if (pubkeysToWallets[eIDPubKey] != walletAddress) revert WalletNotInRegistry();
 
     return true;
   }
